@@ -1,4 +1,4 @@
-{{define "meta"}}
+
 <script src="/static/js/angularjs/1.5.5/angular.min.js"></script>
 <script src="/static/js/angularjs/1.5.5/angular-animate.min.js"></script>
 <script src="/static/js/angularjs/1.5.5/angular-aria.min.js"></script>
@@ -12,4 +12,3 @@
 <script src="/static/js/service/loggerService.js"></script>
 <script src="/static/js/service/factory.js"></script>
 <script src="/static/js/service/confirmService.js"></script>
-{{end}}

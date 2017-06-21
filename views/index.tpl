@@ -3,37 +3,27 @@
 
 <head>
 <title>确认</title>
-
-  <meta http-equiv="static-Type" static="text/html; charset=utf-8" />
-  <link rel="stylesheet" href="/static/css/angular_material1.1.0/angular-material.min.css">
-
+ <<<template "inc/meta.tpl" .>>>
 </head>
-<!-- Angular Material requires Angular.js Libraries -->
-<script src="/static/js/angularjs/1.5.5/angular.min.js"></script>
-<script src="/static/js/angularjs/1.5.5/angular-animate.min.js"></script>
-<script src="/static/js/angularjs/1.5.5/angular-aria.min.js"></script>
-<script src="/static/js/angularjs/1.5.5/angular-messages.min.js"></script>
-
-
-<!-- Angular Material Library -->
-<script src="/static/js/material1.1.0/angular-material.min.js"></script>
-
+<<<template "inc/foot.tpl".>>>
 <!--this page require js -->
 <script src="/static/js/controller/index.js"></script>
 <body ng-app="confirmApp" ng-controller="IndexController as ctrl" ng-cloak>
-   <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-  <form name="userForm"   >
+   <md-content >
+  <form name="userForm">
    <md-content layout="row" layout-xs="column" layout-padding class="md-content-l">
+  
     <div ng-init="ctrl.codeData.id=<<<.id>>>" class="md-div" >
-      <md-input-container >
+      <p class="md-div-p2"><img src="/static/img/os/test.png" style="height:200px;"></p>
+      <md-input-container class="md-input-c2">
         <label>输入四位数字验证码：</label>
-        <input  ng-model="ctrl.codeData.code" type="number"    required ng-pattern="/^[0-9]{4}$/" >
+        <input  ng-model="ctrl.codeData.code" type="number"    required ng-pattern="/^[0-9]{4}$/"  style="height:50px;">
       </md-input-container>
-     
-    </div>   
-     <md-button class="md-primary md-raised " ng-disabled="!userForm.$valid" ng-click="ctrl.submit()" style="height:20px;text-align:center">
+     <div><md-button class="md-primary md-raised " ng-disabled="!userForm.$valid" ng-click="ctrl.submit()" flex="300">
     确认
-  </md-button>
+  </md-button></div>
+    </div>   
+     
   </md-content>
  
    
@@ -44,18 +34,26 @@
 
  <style type="text/css">
         
-        .md-content-l {
-           
-background-color: #09F;
-height:100%;
-            
-        }
-
-       . md-div {
-           text-align:center;
-            
-        }
-
-      
+.md-content-l {
+	height:100%;
+}
+.md-div {
+	width:100%;
+	padding-top:500px;
+	text-align:center;
+	float:left;
+	height:50px;
+}
+.md-div-p2 {
+	width:100%;
+	float:left;
+	text-align:center;
+	height:400px;
+}
+.md-input-c2 {
+	width:300px;
+	font-size:xx-large;
+	padding-top:20px;
+}
 
     </style>

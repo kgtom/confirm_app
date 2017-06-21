@@ -2,12 +2,12 @@
     angular
         .module('confirmApp', ['ngMaterial'])
         .controller('IndexController', IndexController)
-        .config(function ($mdThemingProvider) {
-            $mdThemingProvider.theme('docs-dark', 'default')
-                .primaryPalette('yellow')
-                .dark();
-        }
-        )
+        // .config(function ($mdThemingProvider) {
+        //     $mdThemingProvider.theme('docs-dark', 'default')
+        //         .primaryPalette('yellow')
+        //         .dark();
+        // }
+        // )
     function IndexController($scope, $http, $window, $mdDialog) {
 
         vm = this;
