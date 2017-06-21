@@ -1,0 +1,155 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+
+<head>
+  <title>确认验证</title>
+  
+  <meta http-equiv="static-Type" static="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="/static/css/angular_material1.1.0/angular-material.min.css">
+  <!--{{template "inc/meta.tpl"}}-->
+</head>
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="/static/js/angularjs/1.5.5/angular.min.js"></script>
+<script src="/static/js/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="/static/js/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="/static/js/angularjs/1.5.5/angular-messages.min.js"></script>
+
+
+<!-- Angular Material Library -->
+<script src="/static/js/material1.1.0/angular-material.min.js"></script>
+
+<!--this page require js -->
+<script src="/static/js/controller/info.js"></script>
+<script src="/static/js/service/loggerService.js"></script>
+<script src="/static/js/service/factory.js"></script>
+<script src="/static/js/service/confirmService.js"></script>
+
+
+<body ng-app="confirmApp" ng-controller="confirmController as ctrl" ng-cloak>  
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button aria-label="确认单" ng-init="ctrl.confirmId=<<<.id>>>">
+        确认单
+      </md-button>
+
+      <md-truncate style="position: absolute; left: 90px; right: 170px; top: 13px; bottom: 13px;">乘客信息</md-truncate>
+    </div>
+  </md-toolbar>
+<md-content ng-if="ctrl.passengers.length > 0">
+  <md-list ng-repeat="item in ctrl.passengers">
+  <md-list-item>
+    <span>姓名:</span>
+    <div class="md-list-item-text" layout="column">
+      <p>{{item.Name}}</p>
+    </div>
+  </md-list-item>
+  <md-list-item>
+    <span>性别:</span>
+    <div class="md-list-item-text" layout="column">
+      <p>{{item.Gender}}</p>
+    </div>
+
+  </md-list-item>
+  <md-list-item>
+    <span>证件号:</span>
+    <div class="md-list-item-text" layout="column">
+      <p>{{item.CertificateNumber}}</p>
+    </div>
+  </md-list-item>
+  </md-list>
+   </md-content>
+  <br>
+  
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button aria-label="确认单">
+        确认单
+      </md-button>
+
+      <md-truncate style="position: absolute; left: 90px; right: 170px; top: 13px; bottom: 13px;">票价信息</md-truncate>
+
+    </div>
+  </md-toolbar>
+  <md-content ng-if="ctrl.prices.length > 0">
+    <md-list ng-repeat="item in ctrl.prices">
+ <md-list-item>
+    <span>{{item.Category=='1'?'成人':'儿童'}}票价:</span>
+    <div class="md-list-item-text" layout="column">
+      <p>{{item.TotalAmount}}(票面价{{item.Amount}}+税{{item.Tax}})</p>
+    </div>
+  </md-list-item>
+  </md-list>
+  </md-content>
+  <br>
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button aria-label="确认单">
+        确认单
+      </md-button>
+
+      <md-truncate style="position: absolute; left: 90px; right: 170px; top: 13px; bottom: 13px;">行程信息</md-truncate>
+
+    </div>
+  </md-toolbar>
+  <md-content>
+  <md-list ng-repeat="item in ctrl.airSegments">  
+  <md-list-item>
+    <span>航班号:</span>
+    <div class="md-list-item-text" layout="column">
+      <p>{{item.FlightNumber}}</p>
+    </div>
+  </md-list-item>
+ <md-list-item>
+    <span>起飞-到达日期:</span>
+    <div class="md-list-item-text" layout="column">
+      <p>{{item.ArrivalTime | date:'yyyy-MM-dd HH:mm'}}--{{item.DepartureTime| date:'yyyy-MM-dd HH:mm'}}</p>
+    </div>
+  </md-list-item>
+  <md-list-item>
+    <span>出发地-目的地:</span>
+    <div class="md-list-item-text" layout="column">
+      <p>{{item.DeparturePlace}}--{{item.ArrivalPlace}}</p>
+    </div>
+<br>
+  </md-list-item>
+  </md-list>
+</md-content>
+  <br>
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button aria-label="确认单">
+        确认单
+      </md-button>
+
+      <md-truncate style="position: absolute; left: 90px; right: 170px; top: 13px; bottom: 13px;">温馨提示</md-truncate>
+
+    </div>
+  </md-toolbar>
+  <md-static class="md-padding">
+
+    <p>1. 机票须按顺序使用，如航程变更或取消，请于实际使用航班起飞前48小时与我们联系。如不提前告知由此产生的费用由购票人自行承担</p>
+    <p>2. 请确认您的护照有效期在半年以上，如您有任何关于签证问题请联系相关国家使馆进行确认。</p>
+    <p>3. 航空公司有可能根据市场或者其他原因调整航班时间及日期，建议起飞前三天与承运航空公司做机票再确认，以免航班变动给您的航程带来不便。</p>
+    <p>4. 本确认单是根据购买人提供信息制作填写。请购买人务必认真核实乘机人姓名、航班航程及其他全部相关信息，核实无误后请签字确认并支付票款。本确认单一经购买人签字确认即被视为购票人对我公司之有效指令。</p>
+    <p>5. 由于不可抗力造成的航班延误、变动、取消，如恶劣天气，机械故障，航司原因造成的航班延误、变动、取消，我方将积极配合客户协助解决，但不承担任何责任 。</p>
+    <p>6. 发票请在出票之日起到航程全部结束后的7天内开具。</p>
+    <p>7. 请于收到确认单1小时之内确认签章并回传。</p>
+    <p>8. 未在账期之内结款，我司保留取消行程机票之权利。由此产生的一切责任和费用由购票方负责
+    </p>
+  </md-static>
+  <br>
+
+  <md-button class="md-primary md-raised " ng-click="ctrl.showConfirm()">
+    确认
+  </md-button>
+  <md-button class="md-primary md-raised" ng-click="ctrl.doCancel(ctrl.confirmId)">取消</md-button>
+  
+   <md-button class="md-primary md-raised" ng-click="ctrl.getDataApi(ctrl.confirmId)">test_localhostApi</md-button>
+    
+    <md-button class="md-primary md-raised" ng-click="remoteApiTest()">test_remoteApi</md-button>
+     <md-button class="md-primary md-raised" ng-click="ctrl.test()">test_angularService&factory</md-button>
+</body>
